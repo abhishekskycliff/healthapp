@@ -109,8 +109,6 @@ if(check_email == "" && check_password == ""){
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -118,6 +116,23 @@ if(check_email == "" && check_password == ""){
       body: Container(
         child: ListView(
           children:<Widget> [
+            Container(
+              child: ElevatedButton(
+                onPressed: (){
+                  final snackBar = SnackBar(
+                    content: Text("Thank you"),
+                    action: SnackBarAction(
+                      label: 'Undo',
+                      onPressed: (){
+
+                      },
+                    ),
+                  );
+                  Scaffold.of(context).showSnackBar(snackBar);
+                },
+                child: Text('show Snackbar'),
+              ),
+            ),
             Container(
               child:Image.asset('assets/images/blood.jpg',
                 width: 180,
@@ -174,6 +189,7 @@ if(check_email == "" && check_password == ""){
               ),
               margin: const EdgeInsets.only(left: 120,right: 120,top: 50,),
             ),
+            Image.network("")
           ],
         ),
       ),

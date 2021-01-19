@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/BMI_Calculator.dart';
 import 'package:health_app/Login_screeen.dart';
@@ -97,34 +98,41 @@ class Home_screen extends StatelessWidget{
                  children: [
                    Row(
                      children: [
-                       Card(
-                         child: Container(
-                           child: Column(
-                             children: [
-                               ListTile(
-                                 leading: Icon(Icons.account_circle,
-                                   color: Colors.white,
-                                   size: 40,),
+                       FlatButton(
+                           onPressed: () {Navigator.of(context).push(
+                             MaterialPageRoute(builder: (context) => Login_screen() ),
+                           );},
+                           padding: const EdgeInsets.all(0),
+                           child: Card(
+                             elevation: 80,
+                             child: Container(
+                               child: Column(
+                                 children: [
+                                   ListTile(
+                                     leading: Icon(Icons.account_circle,
+                                       color: Colors.white,
+                                       size: 40,),
+                                   ),
+                                   ListTile(
+                                     title: Text("Find Doctor",
+                                       style: TextStyle(
+                                         fontWeight: FontWeight.bold,
+                                         color: Colors.white,
+                                       ),),
+                                     subtitle: Text("210 Doctors",
+                                       style: TextStyle(
+                                         fontWeight: FontWeight.bold,
+                                         color: Colors.white60,
+                                       ),),
+                                     contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                   )
+                                 ],
                                ),
-                               ListTile(
-                                 title: Text("Find Doctor",
-                                   style: TextStyle(
-                                     fontWeight: FontWeight.bold,
-                                     color: Colors.white,
-                                   ),),
-                                 subtitle: Text("210 Doctors",
-                                   style: TextStyle(
-                                     fontWeight: FontWeight.bold,
-                                     color: Colors.white60,
-                                   ),),
-                                 contentPadding: const EdgeInsets.only(top: 20, left: 15),
-                               )
-                             ],
+                               width: 150,
+                               height: 150,
+                             ),
+                             color: Colors.blue,
                            ),
-                           width: 150,
-                           height: 150,
-                         ),
-                         color: Colors.blue,
                        ),
                        Card(
                          child: Container(
@@ -210,6 +218,7 @@ class Home_screen extends StatelessWidget{
                                    ),),
                                  contentPadding: const EdgeInsets.only(top: 20, left: 15),
                                )
+
                              ],
                            ),
                            width: 150,
@@ -217,11 +226,11 @@ class Home_screen extends StatelessWidget{
                          ),
                          color: Colors.black54,
                        ),
+
                      ],
                    ),
                  ],
                ),
-            
                padding: const EdgeInsets.all(27),
              ),
            ],
