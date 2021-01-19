@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:health_app/BMI_Calculator.dart';
 import 'package:health_app/Login_screeen.dart';
 
+import 'login_design.dart';
+
 class Home_screen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class Home_screen extends StatelessWidget{
                    onTap: (){
                      Navigator.of(context).pop();
                      Navigator.of(context).push(
-                       MaterialPageRoute(builder: (context) => Login_screen() ),
+                       MaterialPageRoute(builder: (context) => login_design() ),
                      );
                    }
                ),

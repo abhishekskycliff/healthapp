@@ -28,13 +28,16 @@ class CurvePainter extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Colors.orange;
-    paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = 2.0;
+    paint.color = Colors.green[800];
+    paint.style = PaintingStyle.fill;
 
     // TODO: implement paint
     var path = Path();
-path.lineTo(size.width,size.height);
+    path.moveTo(0, size.height * 0.25);
+    path.quadraticBezierTo(
+        size.width / 2, size.height / 2, size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
 
     canvas.drawPath(path, paint);
   }
