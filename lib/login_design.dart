@@ -15,9 +15,29 @@ class design extends State<login_design>{
     // TODO: implement build
     return Scaffold(
      body: Container(
-       
+       child: CustomPaint(
+         painter: CurvePainter(),
+       ),
      ),
     );
   }
 
+}
+
+class curvePainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint();
+    // TODO: implement paint
+    var path = Path();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    return true;
+  }
+  
 }

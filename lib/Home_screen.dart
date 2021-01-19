@@ -40,6 +40,11 @@ class Home_screen extends StatelessWidget{
                ListTile(
                  leading: Icon(Icons.accessibility_new,color: Colors.blueAccent,),
                  title: Text('Yoga'),
+                 onTap: () => Scaffold.of(context).showSnackBar(SnackBar(
+                   content: Text("sample"),
+                 ),
+                 ),
+                 //child: Text("click"),
                ),
                ListTile(
                  leading: Icon(Icons.account_circle,color: Colors.blueAccent,),

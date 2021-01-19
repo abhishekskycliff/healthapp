@@ -117,22 +117,47 @@ if(check_email == "" && check_password == ""){
         child: ListView(
           children:<Widget> [
             Container(
-              child: ElevatedButton(
-                onPressed: (){
-                  final snackBar = SnackBar(
-                    content: Text("Thank you"),
-                    action: SnackBarAction(
-                      label: 'Undo',
-                      onPressed: (){
-
-                      },
+              child: Builder(
+                builder: (context) => Center(
+                  child: ElevatedButton(
+                    onPressed: () => Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text("sample"),
                     ),
-                  );
-                  Scaffold.of(context).showSnackBar(snackBar);
-                },
-                child: Text('show Snackbar'),
+                    ),
+                    child: Text("click"),
+                  ),
+                ),
               ),
+              // RaisedButton(
+              //   onPressed: () => Scaffold.of(context).showSnackBar(
+              //     SnackBar(content: Text("sample"),
+              //     ),
+              //   ),
+              //
+              // ),
             ),
+
+
+                // onPressed: () =>
+                //
+                //   Scaffold.of(context).showSnackBar(snackbar)
+                //
+                //
+                //
+                // //   showSnackBar{
+                // //     SnackBar(
+                // //       content: Text("Thank you"),
+                // //       action: SnackBarAction(
+                // //         label: 'Undo',
+                // //         onPressed: (){
+                // //
+                // //         },
+                // //       ),
+                // //     );
+                // //    }
+                // // },
+                // child: Text('show Snackbar'),
+
             Container(
               child:Image.asset('assets/images/blood.jpg',
                 width: 180,
