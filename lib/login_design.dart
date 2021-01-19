@@ -24,12 +24,17 @@ class design extends State<login_design>{
 
 }
 
-class curvePainter extends CustomPainter{
+class CurvePainter extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
+    paint.color = Colors.orange;
+    paint.style = PaintingStyle.stroke;
+    paint.strokeWidth = 2.0;
+
     // TODO: implement paint
     var path = Path();
+path.lineTo(size.width,size.height);
 
     canvas.drawPath(path, paint);
   }
