@@ -90,6 +90,39 @@ class Home_screen extends StatelessWidget{
            Container(
              child: Column(
                children: [
+                 Container(
+                   child: Card(
+                       elevation: 3,
+                       color: Colors.white,
+                       child: Column(
+                         children: [
+                           FractionalTranslation(
+                             translation: Offset(0.10, -0.3),
+                             child: Align(
+                               child: Container(
+                                 height: 50,
+                                 width: 50,
+                                 child: Image.asset("assets/images/tooth1.png"),
+                                 decoration: BoxDecoration(
+                                     color: Colors.blue,
+                                     borderRadius: BorderRadius.circular(10)
+                                 ),
+                                 padding: const EdgeInsets.only(left: 0),
+                               ),
+
+                             ),
+                           ),
+
+                           Container(
+                             child: Text("Dental \nSurgeon",style: TextStyle(color: Colors.purple),),
+                             padding: const EdgeInsets.only(top: 0, right: 20, left: 10),
+                             margin: const EdgeInsets.only(top: 0, right: 0, left: 0),
+                           ),
+                         ],
+                       )
+                   ),
+                   padding: const EdgeInsets.only(left: 10),
+                 ),
                  ListTile(
                    title: Text('Hello,',
                      style:TextStyle(
