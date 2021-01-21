@@ -30,6 +30,18 @@ class Search_doc extends State<doctor_search>{
               ),
               margin: const EdgeInsets.only(left: 25,top: 50),
             ),
+            Container(
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Search For Doctor",
+                    contentPadding: const EdgeInsets.only(left: 30,right: 20),
+                ),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.deepOrange,
+              ),
+            ),
           ],
         ),
       ),
