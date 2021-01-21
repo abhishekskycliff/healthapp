@@ -17,8 +17,18 @@ class Drug extends State<Druglist>{
       appBar: AppBar(
         title: Text("Drug List"),
       ),
-      body: Container(
-        child: Text("Drug"),
+      body:  Container(
+        child: Builder(
+          builder: (context) => Center(
+            child: ElevatedButton(
+              onPressed: () => Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text("sample"),
+              ),
+              ),
+              child: Text("click"),
+            ),
+          ),
+        ),
       ),
     );
   }

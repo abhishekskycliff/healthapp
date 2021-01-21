@@ -37,12 +37,16 @@ class Register_screen extends State<Register>{
               title:Text("First Name",
                 style: TextStyle(
                   fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Card(
               child: TextField(
                 decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    ),
                   hintText: "Enter Your First Name"
                 ),
               ),
@@ -52,12 +56,16 @@ class Register_screen extends State<Register>{
               title:Text("Last Name",
                 style: TextStyle(
                   fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Card(
               child: TextField(
                 decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    ),
                   hintText: "Enter YourLast Name"
                 ),
               ),
@@ -67,12 +75,16 @@ class Register_screen extends State<Register>{
               title:Text("Email",
                 style: TextStyle(
                   fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Card(
               child: TextField(
                 decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    ),
                   hintText: "Enter Your Email"
                 ),
               ),
@@ -82,12 +94,16 @@ class Register_screen extends State<Register>{
               title:Text("password",
                 style: TextStyle(
                   fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Card(
               child: TextField(
                 decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
                   hintText: "Enter your password",
                   fillColor: Colors.orange,
                 ),
@@ -102,7 +118,7 @@ class Register_screen extends State<Register>{
                     context,
                     MaterialPageRoute(builder: (context) => Home_screen()),);
                 },
-                child: Text('Register'),
+                child: Text('Get Started'),
                 color: Colors.green,
               ),
               margin: const EdgeInsets.only(left: 120,right: 120,top: 50,),

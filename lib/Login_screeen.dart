@@ -4,6 +4,7 @@ import 'package:health_app/Register_screen.dart';
 import 'package:health_app/main.dart';
 import 'package:health_app/Home_screen.dart';
 import 'package:health_app/drawer_screen.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Login_screen extends StatefulWidget{
   @override
@@ -114,21 +115,18 @@ if(check_email == "" && check_password == ""){
     // TODO: implement build
     return Scaffold(
       body: Container(
+        child: CustomPaint(
+          painter: CurvePainter(),
+
         child: ListView(
           children:<Widget> [
             Container(
-              child: Builder(
-                builder: (context) => Center(
-                  child: ElevatedButton(
-                    onPressed: () => Scaffold.of(context).showSnackBar(SnackBar(
-                        content: Text("sample"),
-                    ),
-                    ),
-                    child: Text("click"),
-                  ),
-                ),
+              color: Colors.white,
+              child: CustomPaint(
+                painter: CurvePainter(),
               ),
             ),
+
             Container(
               child:Image.asset('assets/images/blood.jpg',
                 width: 180,
@@ -140,7 +138,7 @@ if(check_email == "" && check_password == ""){
                 style: TextStyle(
                   color: Colors.blueAccent,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 25,
               ),
               ),
             ),
@@ -148,12 +146,16 @@ if(check_email == "" && check_password == ""){
               title:Text("Email",
               style: TextStyle(
               fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
               ),
             ),
             Card(
                 child: TextField(
                   decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                      ),
                     hintText: "Enter Your Register Email"
                   ),
                 controller: email,
@@ -164,13 +166,17 @@ if(check_email == "" && check_password == ""){
               title:Text("Password",
                 style: TextStyle(
                   fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Card(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter Your password"
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                  hintText: "Enter Your password",
                 ),
                 controller: password,
               ),
@@ -178,26 +184,66 @@ if(check_email == "" && check_password == ""){
             ),
 
             Container(
-              child: RaisedButton(
-                onPressed: verify,
-                child: Text('Login'),
-                color: Colors.green,
+              child:Row(
+                children: [
+                  Container(
+                    child: RaisedButton(
+                      onPressed: verify,
+                      child: Text('Login'),
+                      color: Colors.green,
+                    ),
+                    width: 150,
+                    margin: const EdgeInsets.all(10),
+                  ),
+                  Container(
+                    child: RaisedButton(
+                      onPressed:()
+                      {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Register() ),
+                        );
+                      },
+                      child: Text('Register'),
+                      color: Colors.blue,
+                    ),
+                    width: 150,
+                    margin: const EdgeInsets.all(10),
+                  ),
+                ],
               ),
-              margin: const EdgeInsets.only(left: 120,right: 120,top: 50,),
+              margin: const EdgeInsets.only(left: 25,right: 20,top: 50,),
             ),
-            Image.network("")
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(
-              context,
-            MaterialPageRoute(builder: (context) => Register()),
-          );
-        },
-        child: Icon(Icons.add),
       ),
     );
+  }
+}
+
+
+class CurvePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint();
+    paint.color = Colors.blue;
+    paint.style = PaintingStyle.fill;
+
+    var path = Path();
+
+    path.moveTo(0, size.height * 0.9167);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.875,
+        size.width * 0.5, size.height * 0.9167);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.9584,
+        size.width * 1.0, size.height * 0.9167);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 }
