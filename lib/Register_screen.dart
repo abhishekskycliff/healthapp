@@ -121,7 +121,7 @@ class Register_screen extends State<Register>{
                 child: Text('Get Started'),
                 color: Colors.green,
               ),
-              margin: const EdgeInsets.only(left: 120,right: 120,top: 50,),
+              margin: const EdgeInsets.only(left: 120,right: 120,top: 20,),
             ),
           ],
         ),

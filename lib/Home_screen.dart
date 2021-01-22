@@ -5,6 +5,7 @@ import 'package:health_app/Login_screeen.dart';
 import 'package:health_app/drawer_screen.dart';
 import 'package:health_app/Profile_Screen.dart';
 import 'Appointment.dart';
+import 'Contact_us.dart';
 import 'Druglist.dart';
 import 'find_doctor.dart';
 import 'find_hospital.dart';
@@ -13,6 +14,416 @@ import 'login_design.dart';
 class Home_screen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
+    Widget potrate() {
+      return Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          FractionallySizedBox(
+            child: ListView(
+              children: [
+                Container(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text('Hello,',
+                          style:TextStyle(
+                            fontSize: 25,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title:  Text('How Can We take care yourself?',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                FlatButton(
+                                  onPressed: () {Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => Find_doctor() ),
+                                  );},
+                                  padding: const EdgeInsets.all(0),
+                                  child: Card(
+                                    elevation: 80,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Icon(Icons.account_circle,
+                                              color: Colors.white,
+                                              size: 40,),
+                                          ),
+                                          ListTile(
+                                            title: Text("Find Doctor",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),),
+                                            subtitle: Text("210 Doctors",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white60,
+                                              ),),
+                                            contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                          )
+                                        ],
+                                      ),
+                                      width: 150,
+                                      height: 150,
+                                    ),
+                                    color: Colors.blue,
+                                  ),
+                                ),
+
+                                FlatButton(
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => Hospital_Screen()),
+                                    );
+                                  },
+                                  padding: const EdgeInsets.all(0),
+                                  child:  Card(
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Icon(Icons.account_balance,
+                                              color: Colors.white,
+                                              size: 40,),
+                                          ),
+                                          ListTile(
+                                            title: Text("Find Hospital",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            subtitle: Text("30 Hospital",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white60,
+                                              ),
+                                            ),
+                                            contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                          )
+                                        ],
+                                      ),
+                                      width: 150,
+                                      height: 150,
+                                    ),
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                FlatButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => Appoitment_screen()),
+                                    );
+                                  },
+                                  padding: const EdgeInsets.all(0),
+                                  child: Card(
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Icon(Icons.local_hospital_outlined,
+                                              color: Colors.white,
+                                              size: 40,),
+                                          ),
+                                          ListTile(
+                                            title: Text("Appointment",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),),
+                                            subtitle: Text("56 available",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white60,
+                                              ),),
+                                            contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                          )
+                                        ],
+                                      ),
+                                      width: 150,
+                                      height: 150,
+                                    ),
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                FlatButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => Druglist()),
+                                    );
+                                  },
+                                  padding: const EdgeInsets.all(0),
+                                  child: Card(
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Icon(Icons.calendar_today,
+                                              color: Colors.white,
+                                              size: 40,),
+                                          ),
+                                          ListTile(
+                                            title: Text("DrugList",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),),
+                                            subtitle: Text("22 Services",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white60,
+                                              ),),
+                                            contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                          )
+                                        ],
+                                      ),
+                                      width: 150,
+                                      height: 150,
+                                    ),
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+
+                        padding: const EdgeInsets.all(27),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(10),
+                ),
+              ],
+            ),
+          ),
+        ]
+      );
+    }
+
+    Widget landscape() {
+      return Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            FractionallySizedBox(
+              child: ListView(
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('Hello,',
+                            style:TextStyle(
+                              fontSize: 25,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          title:  Text('How Can We take care yourself?',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  FlatButton(
+                                    onPressed: () {Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => Find_doctor() ),
+                                    );},
+                                    padding: const EdgeInsets.all(0),
+                                    child: Card(
+                                      elevation: 80,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            ListTile(
+                                              leading: Icon(Icons.account_circle,
+                                                color: Colors.white,
+                                                size: 40,),
+                                            ),
+                                            ListTile(
+                                              title: Text("Find Doctor",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                ),),
+                                              subtitle: Text("210 Doctors",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white60,
+                                                ),),
+                                              contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                            )
+                                          ],
+                                        ),
+                                        width: 150,
+                                        height: 150,
+                                      ),
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+
+                                  FlatButton(
+                                    onPressed: (){
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => Hospital_Screen()),
+                                      );
+                                    },
+                                    padding: const EdgeInsets.all(0),
+                                    child:  Card(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            ListTile(
+                                              leading: Icon(Icons.account_balance,
+                                                color: Colors.white,
+                                                size: 40,),
+                                            ),
+                                            ListTile(
+                                              title: Text("Find Hospital",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                              subtitle: Text("30 Hospital",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white60,
+                                                ),
+                                              ),
+                                              contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                            )
+                                          ],
+                                        ),
+                                        width: 150,
+                                        height: 150,
+                                      ),
+                                      color: Colors.black54,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => Appoitment_screen()),
+                                      );
+                                    },
+                                    padding: const EdgeInsets.all(0),
+                                    child: Card(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            ListTile(
+                                              leading: Icon(Icons.local_hospital_outlined,
+                                                color: Colors.white,
+                                                size: 40,),
+                                            ),
+                                            ListTile(
+                                              title: Text("Appointment",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                ),),
+                                              subtitle: Text("56 available",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white60,
+                                                ),),
+                                              contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                            )
+                                          ],
+                                        ),
+                                        width: 150,
+                                        height: 150,
+                                      ),
+                                      color: Colors.black54,
+                                    ),
+                                  ),
+                                  FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => Druglist()),
+                                      );
+                                    },
+                                    padding: const EdgeInsets.all(0),
+                                    child: Card(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            ListTile(
+                                              leading: Icon(Icons.calendar_today,
+                                                color: Colors.white,
+                                                size: 40,),
+                                            ),
+                                            ListTile(
+                                              title: Text("DrugList",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                ),),
+                                              subtitle: Text("22 Services",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white60,
+                                                ),),
+                                              contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                                            )
+                                          ],
+                                        ),
+                                        width: 150,
+                                        height: 150,
+                                      ),
+                                      color: Colors.black54,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          padding: const EdgeInsets.only(left: 200)
+                        ),
+                      ],
+                    ),
+                    padding: const EdgeInsets.all(10),
+                  ),
+                ],
+              ),
+            ),
+          ]
+      );
+    }
+
     // TODO: implement build
      return Scaffold(
        appBar: AppBar(
@@ -74,8 +485,15 @@ class Home_screen extends StatelessWidget{
                  title: Text('Drug List'),
                ),
                ListTile(
-                 leading: Icon(Icons.settings,color: Colors.blueAccent,),
-                 title: Text('Settings'),
+                 leading: Icon(Icons.contact_mail,color: Colors.blueAccent,),
+                 title: Text('Contact Us'),
+                 onTap: ()
+                 {
+                   Navigator.of(context).push
+                     (
+                     MaterialPageRoute(builder: (context) => contactus() ),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.logout,color: Colors.blueAccent,),
@@ -91,199 +509,14 @@ class Home_screen extends StatelessWidget{
              ],
            ),
          ),
-       body: ListView(
-         children: [
-           Container(
-             child: Column(
-               children: [
-                 ListTile(
-                   title: Text('Hello,',
-                     style:TextStyle(
-                       fontSize: 25,
-                       color: Colors.black,
-                       fontWeight: FontWeight.bold,
-                     ),
-                   ),
-                 ),
-                 ListTile(
-                   title:  Text('How Can We take care yourself?',
-                     style: TextStyle(
-                       fontSize: 20,
-                       fontWeight: FontWeight.bold,
-                       color: Colors.blueGrey,
-                     ),
-                   ),
-                 ),
-                 Container(
-                   child: Column(
-                     children: [
-                       Row(
-                         children: [
-                           FlatButton(
-                             onPressed: () {Navigator.of(context).push(
-                               MaterialPageRoute(builder: (context) => Find_doctor() ),
-                             );},
-                             padding: const EdgeInsets.all(0),
-                             child: Card(
-                               elevation: 80,
-                               child: Container(
-                                 child: Column(
-                                   children: [
-                                     ListTile(
-                                       leading: Icon(Icons.account_circle,
-                                         color: Colors.white,
-                                         size: 40,),
-                                     ),
-                                     ListTile(
-                                       title: Text("Find Doctor",
-                                         style: TextStyle(
-                                           fontWeight: FontWeight.bold,
-                                           color: Colors.white,
-                                         ),),
-                                       subtitle: Text("210 Doctors",
-                                         style: TextStyle(
-                                           fontWeight: FontWeight.bold,
-                                           color: Colors.white60,
-                                         ),),
-                                       contentPadding: const EdgeInsets.only(top: 20, left: 15),
-                                     )
-                                   ],
-                                 ),
-                                 width: 150,
-                                 height: 150,
-                               ),
-                               color: Colors.blue,
-                             ),
-                           ),
-
-                           FlatButton(
-                               onPressed: (){
-                                 Navigator.of(context).push(
-                                   MaterialPageRoute(builder: (context) => Hospital_Screen()),
-                                    );
-                                 },
-                             padding: const EdgeInsets.all(0),
-                               child:  Card(
-                                 child: Container(
-                                   child: Column(
-                                     children: [
-                                       ListTile(
-                                         leading: Icon(Icons.account_balance,
-                                           color: Colors.white,
-                                           size: 40,),
-                                       ),
-                                       ListTile(
-                                         title: Text("Find Hospital",
-                                           style: TextStyle(
-                                             fontWeight: FontWeight.bold,
-                                             color: Colors.white,
-                                           ),
-                                         ),
-                                         subtitle: Text("30 Hospital",
-                                           style: TextStyle(
-                                             fontWeight: FontWeight.bold,
-                                             color: Colors.white60,
-                                           ),
-                                         ),
-                                         contentPadding: const EdgeInsets.only(top: 20, left: 15),
-                                       )
-                                     ],
-                                   ),
-                                   width: 150,
-                                   height: 150,
-                                 ),
-                                 color: Colors.black54,
-                               ),
-                           ),
-                         ],
-                       ),
-                       Row(
-                         children: [
-                           FlatButton(
-                               onPressed: () {
-                                 Navigator.of(context).push(
-                                   MaterialPageRoute(builder: (context) => Appoitment_screen()),
-                                 );
-                               },
-                             padding: const EdgeInsets.all(0),
-                               child: Card(
-                                 child: Container(
-                                   child: Column(
-                                     children: [
-                                       ListTile(
-                                         leading: Icon(Icons.local_hospital_outlined,
-                                           color: Colors.white,
-                                           size: 40,),
-                                       ),
-                                       ListTile(
-                                         title: Text("Appointment",
-                                           style: TextStyle(
-                                             fontWeight: FontWeight.bold,
-                                             color: Colors.white,
-                                           ),),
-                                         subtitle: Text("56 available",
-                                           style: TextStyle(
-                                             fontWeight: FontWeight.bold,
-                                             color: Colors.white60,
-                                           ),),
-                                         contentPadding: const EdgeInsets.only(top: 20, left: 15),
-                                       )
-                                     ],
-                                   ),
-                                   width: 150,
-                                   height: 150,
-                                 ),
-                                 color: Colors.black54,
-                               ),
-                           ),
-                           FlatButton(
-                             onPressed: () {
-                               Navigator.of(context).push(
-                                 MaterialPageRoute(builder: (context) => Druglist()),
-                               );
-                             },
-                             padding: const EdgeInsets.all(0),
-                             child: Card(
-                               child: Container(
-                                 child: Column(
-                                   children: [
-                                     ListTile(
-                                       leading: Icon(Icons.calendar_today,
-                                         color: Colors.white,
-                                         size: 40,),
-                                     ),
-                                     ListTile(
-                                       title: Text("DrugList",
-                                         style: TextStyle(
-                                           fontWeight: FontWeight.bold,
-                                           color: Colors.white,
-                                         ),),
-                                       subtitle: Text("22 Services",
-                                         style: TextStyle(
-                                           fontWeight: FontWeight.bold,
-                                           color: Colors.white60,
-                                         ),),
-                                       contentPadding: const EdgeInsets.only(top: 20, left: 15),
-                                     )
-                                   ],
-                                 ),
-                                 width: 150,
-                                 height: 150,
-                               ),
-                               color: Colors.black54,
-                             ),
-                           ),
-                         ],
-                       ),
-                     ],
-                   ),
-                   padding: const EdgeInsets.all(27),
-                 ),
-               ],
-             ),
-             padding: const EdgeInsets.all(10),
-           ),
-         ],
+       body: OrientationBuilder(
+         builder: (context, orientation){
+           if(orientation == Orientation.portrait){
+             return potrate();
+           }else{
+             return landscape();
+           }
+         },
        ),
      );
   }

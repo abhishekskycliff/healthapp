@@ -6,6 +6,9 @@ import 'package:health_app/doctor_search.dart';
 
 import "package:hexcolor/hexcolor.dart";
 
+import 'about_doctor.dart';
+import 'doctor_description.dart';
+
 class Find_doctor extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -49,7 +52,7 @@ class num_doctor extends State<Find_doctor>{
              child:  FlatButton(
                onPressed: (){
                  Navigator.of(context).push(
-                   MaterialPageRoute(builder: (context) => doctor_search()),
+                   MaterialPageRoute(builder: (context) => about_doctor()),
                  );
                },
                child:Text("Get Started",style: TextStyle(
