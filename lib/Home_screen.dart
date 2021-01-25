@@ -1,13 +1,15 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/BMI_Calculator.dart';
 import 'package:health_app/Login_screeen.dart';
 import 'package:health_app/drawer_screen.dart';
 import 'package:health_app/Profile_Screen.dart';
+import 'package:health_app/yoga_screen.dart';
 import 'Appointment.dart';
 import 'Contact_us.dart';
 import 'Druglist.dart';
-import 'find_doctor.dart';
+import 'Doctor_Screen.dart';
 import 'find_hospital.dart';
 import 'login_design.dart';
 
@@ -49,9 +51,11 @@ class Home_screen extends StatelessWidget{
                             Row(
                               children: [
                                 FlatButton(
-                                  onPressed: () {Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context) => Find_doctor() ),
-                                  );},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => Doctor_Screen() ),
+                                  );
+                                    },
                                   padding: const EdgeInsets.all(0),
                                   child: Card(
                                     elevation: 80,
@@ -255,7 +259,7 @@ class Home_screen extends StatelessWidget{
                                 children: [
                                   FlatButton(
                                     onPressed: () {Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) => Find_doctor() ),
+                                      MaterialPageRoute(builder: (context) => Doctor_Screen() ),
                                     );},
                                     padding: const EdgeInsets.all(0),
                                     child: Card(
@@ -458,31 +462,57 @@ class Home_screen extends StatelessWidget{
                ListTile(
                  leading: Icon(Icons.accessibility_new,color: Colors.blueAccent,),
                  title: Text('Yoga'),
-                 onTap: () => Scaffold.of(context).showSnackBar(SnackBar(
-                   content: Text("sample"),
-                 ),
-                 ),
-                 //child: Text("click"),
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Yoga_screen()),
+                   );
+                 }
                ),
                ListTile(
                  leading: Icon(Icons.account_circle,color: Colors.blueAccent,),
                  title: Text('Calculate BMI'),
+                 onTap: ()
+                 {
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (contaext) => BMI_calculator()),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.account_circle_outlined,color: Colors.blueAccent,),
                  title: Text('Find Doctor'),
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Doctor_Screen()),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.account_balance,color: Colors.blueAccent,),
                  title: Text('Find Hospital'),
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Hospital_Screen()),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.add_to_photos_outlined,color: Colors.blueAccent,),
                  title: Text('Appointment'),
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Appoitment_screen()),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.calendar_today,color: Colors.blueAccent,),
                  title: Text('Drug List'),
+                 onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (context) => Druglist()),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.contact_mail,color: Colors.blueAccent,),

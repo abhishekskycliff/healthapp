@@ -4,8 +4,6 @@ import 'package:health_app/main.dart';
 import 'package:health_app/Login_screeen.dart';
 import 'package:health_app/Register_screen.dart';
 import 'package:health_app/Home_screen.dart';
-
-import 'doctor_description.dart';
 import 'login_design.dart';
 
 
