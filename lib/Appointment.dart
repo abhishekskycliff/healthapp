@@ -18,9 +18,19 @@ class Appoitment extends State<Appoitment_screen>{
         title: Text("Appointment"),
       ),
       body: Container(
-        child: Text("Drug"),
+        child: Center(
+          child: Column(
+            children: [
+              Image.network("https://i.pinimg.com/736x/6e/b8/d9/6eb8d959e858c648a00fc269e3bbf579.jpg"),
+              Text("You have No Appointment",style: TextStyle(
+                fontSize: 20,
+                color: Colors.black26,
+                fontWeight: FontWeight.bold,
+              ),),
+            ],
+          )
+        ),
       ),
     );
   }
-
 }

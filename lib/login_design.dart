@@ -19,7 +19,6 @@ class login_wave_screen extends StatelessWidget{
   }
 }
 
-
 class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

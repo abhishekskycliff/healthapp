@@ -2,10 +2,20 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class contactus extends StatelessWidget{
+class Contactus extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+   return contact_state();
+  }
+}
+
+class contact_state extends State<Contactus> {
+
 
   make_call() async {
     const call = 'tel:+918752991548';
@@ -15,7 +25,7 @@ class contactus extends StatelessWidget{
     else{
       throw 'could not launch $call';
     }
-}
+  }
   browser() async {
     const browse = 'http://www.skycliffit.com/';
     if (await launch(browse)){
@@ -36,9 +46,6 @@ class contactus extends StatelessWidget{
     }
   }
 
-// send_mail() async {
-//     const  = ''
-// }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -48,9 +55,6 @@ class contactus extends StatelessWidget{
       ),
       body: ListView(
         children: [
-          Container(
-            child: Column(
-              children: [
                 Container(
                   child: Image.asset("assets/images/contact_image.png"),
                 ),
@@ -77,77 +81,65 @@ class contactus extends StatelessWidget{
                   color: HexColor("#3C2361"),
                   margin: const EdgeInsets.only(top: 20),
                 ),
+                ListTile(
+                  title: Text("About us", style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    "Skycliff IT is passionately built to excel in "
+                        "Quality, Value and Time driven Techno Commercial world. "
+                        "We understand the Customer Requirements and Time bound"
+                        " business commitments, thus, perform time critical "
+                        "processes to deliver accurate results with quality "
+                        "as the prime and unique proposition.",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
+                      wordSpacing: 3,
+                    ),
+                  ),
+                ),
                 Container(
-                  child:Column(
-                    children: [
-                      ListTile(
-                        title: Text("About us",style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  child:  FlatButton(onPressed: browser,
+                    child: Text("Read More",
+                      style: TextStyle(
+                        color: Colors.lightBlue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  margin: const EdgeInsets.only(left: 220),
+                ),
+                Container(
+                  child: Stack(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: FloatingActionButton(
+                          onPressed: make_call,
+                          heroTag: "btn1",
+                          child: Icon(Icons.call),
                         ),
                       ),
-                      ListTile(
-                        title: Text("Skycliff IT is passionately built to excel in "
-                            "Quality, Value and Time driven Techno Commercial world. "
-                            "We understand the Customer Requirements and Time bound"
-                            " business commitments, thus, perform time critical "
-                            "processes to deliver accurate results with quality "
-                            "as the prime and unique proposition.",style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.black87,
-                          wordSpacing: 3,
-                        ),
-                        ),
-                      ),
-                      FlatButton(onPressed: browser,
-                        child: Text("Read More",
-                          style: TextStyle(
-                            color: Colors.lightBlue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10,
-                          ),
+                      Align(
+                        alignment: Alignment(0.5,0.1),
+                        child: FloatingActionButton(
+                          onPressed: send_email,
+                          heroTag: "btn2",
+                          child: Icon(Icons.mail_rounded),
                         ),
                       ),
                     ],
                   ),
-                  color: HexColor("#FAF2DA"),
+                  margin: const EdgeInsets.all(20),
                 ),
-                Container(
-                  child: Row(
-                    children: [
-                      FlatButton(
-                        onPressed: make_call,
-                        child:    Container(
-                          child: Icon(Icons.add_call,color: Colors.blue,size: 30,),
-                          decoration: BoxDecoration(
-                              color: HexColor("#E4E0EA"),
-                              borderRadius: BorderRadius.circular(40)
-                          ),
-                          padding: const EdgeInsets.all(20),
-                        ),
-                      ),
-
-                      FlatButton(
-                        onPressed: send_email(),
-                        child:     Container(
-                          child: Icon(Icons.mail_sharp,color: Colors.orange,size: 30,),
-                          decoration: BoxDecoration(
-                              color: HexColor("#E4E0EA"),
-                              borderRadius: BorderRadius.circular(40)
-                          ),
-                          margin: const EdgeInsets.all(20),
-                          padding: const EdgeInsets.all(15),
-                        ),
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.only(left: 138,right: 20,top: 40),
-                  color: HexColor("#FAF2DA"),
-                ),
-              ],
-            ),
-          ),
+          //color: HexColor("#FAF2DA"),
         ],
       ),
     );

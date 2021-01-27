@@ -44,8 +44,10 @@ class search_doc extends State<Search_doctor>{
               color: Colors.black12,
               borderRadius: BorderRadius.circular(20),
             ),
+
             margin: const EdgeInsets.only(left: 40,right: 40),
           ),
+
           Container(
             child:  Text("Categories",style: TextStyle(
               fontSize: 20,

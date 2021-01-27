@@ -1,37 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:health_app/Login_screeen.dart';
+import 'package:flutter/painting.dart';
+import 'package:hexcolor/hexcolor.dart';
 
-class BMI_calculator extends StatefulWidget{
+class BMI_Calculator extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return BMI_info();
   }
-
 }
 
-class BMI_info extends State<BMI_calculator>{
+class BMI_info extends State<BMI_Calculator>{
 
-  var hightController = TextEditingController();
-  var WeightController = TextEditingController();
+  double weight=45;
+  double height= 05;
+  var result;
+  double BMI= 0;
 
-  double BMI =0 ;
   void CalculateBMI(){
     setState(() {
-
-      double weight = double.parse(WeightController.text);
-      double height = double.parse(hightController.text);
       double weight1 = weight * 10000;
       double height1 = height * 30.48;
       double sqrheight = height1 * height1;
       BMI = (weight1/sqrheight);
       print(BMI);
 
-      if(BMI<20){
-        print("YOur Under weight");
+      if(BMI<18.50){
+        result = "You are underWeight,";
       }
-
+      else if(BMI>18.50 && BMI<25.00){
+        result = "You are Normal";
+      }
+      else{
+        result="You are Over Weight";
+      }
     });
   }
   @override
@@ -39,49 +41,127 @@ class BMI_info extends State<BMI_calculator>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text("BMI"),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Column(
+      body:ListView(
+        children: [
+          Card(
+            elevation: 6,
+            child: Container(
+              child:Column(
                 children: [
-                  TextField(
-                    decoration: InputDecoration(
-                        hintText: "Enter Your weight in kg"
-                    ),
-                    controller: WeightController,
-
+                  ListTile(
+                    title: Text("Select your Weight in KG",style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.indigo,
+                      fontWeight: FontWeight.bold,
+                    ),),
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-
-                        ),
-                        hintText: "Enter your height in feet"
+                  Container(
+                    child: Slider(
+                      value: weight,
+                      min: 0,
+                      max: 150,
+                      divisions: 150,
+                      label: weight.round().toString(),
+                      onChanged: (double value){
+                        setState(() {
+                          weight =value;
+                        });
+                      },
                     ),
-                    controller: hightController,
+                  ),
+                  Container(
+                    child: Text("$weight",style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
                   ),
                 ],
               ),
+              width: 100,
+              height: 150,
             ),
-            Container(
-              child: RaisedButton(
-                child:Text("Calculate"),
-                color: Colors.blueAccent,
-                onPressed:CalculateBMI,
+          ),
+          Card(
+            elevation: 6,
+            child: Container(
+              child:Column(
+                children: [
+                  ListTile(
+                    title: Text("Select your height in feet",style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.indigo,
+                      fontWeight: FontWeight.bold,
+                    ),),
+                  ),
+                  Container(
+                    child: Slider(
+                      value: height,
+                      min: 0,
+                      max: 50,
+                      divisions: 50,
+                      label: height.round().toString(),
+                      onChanged: (double value){
+                        setState(() {
+                          height =value;
+                        });
+                      },
+                    ),
+                  ),
+                  Container(
+                    child: Text("$height",style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
+                  ),
+                ],
               ),
+              width: 100,
+              height: 150,
             ),
-            Container(
-              child: Text('$BMI'),
+          ),
+          Card(
+            elevation: 6,
+            child: Container(
+              child:Column(
+                children: [
+                  Container(
+                    child: Text("$BMI",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                    ),
+                    margin: const EdgeInsets.all(20),
+                  ),
+                  Container(
+                    child: Text("$result",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.indigo,
+                    ),
+                    ),
+                    margin: const EdgeInsets.all(20),
+                  ),
+                ],
+              ),
+              width: 100,
+              height: 150,
             ),
-          ],
-        ),
+          ),
+          Container(
+            child:ElevatedButton(
+              onPressed: CalculateBMI,
+              child: Text("Calculate"),
+            ),
+            height: 50,
+            margin: const EdgeInsets.only(top: 40,left: 70,right: 70),
+          ),
+        ],
       ),
     );
   }
 }
-
-
-
