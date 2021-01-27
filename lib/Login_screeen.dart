@@ -19,6 +19,7 @@ class Login_screen extends StatefulWidget {
 
 class Login extends State<Login_screen> {
 
+  final name = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
 
@@ -40,18 +41,14 @@ class Login extends State<Login_screen> {
   void check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
     newuser = (logindata.getBool('login') ?? true);
-
     print(newuser);
-    if (newuser == false) {
-      Navigator.pushReplacement(
-          context, new MaterialPageRoute(builder: (context) => Home()));
-    }
   }
 
   /// Dispose method which clears the message
 
   void dispose() {
     // Clean up the controller when the widget is disposed.
+    name.dispose();
     email.dispose();
     password.dispose();
     super.dispose();
@@ -90,8 +87,8 @@ class Login extends State<Login_screen> {
             ],
           ),
         );
-      } else if (check_email == "abandi@skycliffit.com" &&
-          check_password == "12345") {
+      } else if (check_email == "a@gmail.com" &&
+          check_password == "12") {
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -193,6 +190,26 @@ class Login extends State<Login_screen> {
               ),
               ListTile(
                 title: Text(
+                  "User Name",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Card(
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                      ),
+                      hintText: "Enter your Name"),
+                  controller: name,
+                ),
+                margin: const EdgeInsets.only(left: 30, right: 30),
+              ),
+              ListTile(
+                title: Text(
                   "Email",
                   style: TextStyle(
                     fontSize: 15,
@@ -206,7 +223,7 @@ class Login extends State<Login_screen> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 2.0),
                       ),
-                      hintText: "Enter Your Register Email"),
+                      hintText: "Enter Your Registered Email"),
                   controller: email,
                 ),
                 margin: const EdgeInsets.only(left: 30, right: 30),
@@ -281,7 +298,6 @@ class CurvePainter extends CustomPainter {
     paint.style = PaintingStyle.fill;
 
     var path = Path();
-
     path.moveTo(0, size.height * 0.9167);
     path.quadraticBezierTo(size.width * 0.25, size.height * 0.875,
         size.width * 0.5, size.height * 0.9167);
@@ -289,7 +305,6 @@ class CurvePainter extends CustomPainter {
         size.width * 1.0, size.height * 0.9167);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-
     canvas.drawPath(path, paint);
   }
 

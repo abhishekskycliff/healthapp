@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:health_app/drawer_screen.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Login_screeen.dart';
 
@@ -15,6 +16,23 @@ class Profile_screen extends StatefulWidget{
 }
 
 class profile extends State<Profile_screen>{
+
+  SharedPreferences logindata;
+  String username;
+
+  @override
+  void initState(){
+    super.initState();
+    initial();
+  }
+
+  void initial() async{
+    logindata =await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -45,7 +63,7 @@ class profile extends State<Profile_screen>{
                margin: const EdgeInsets.only(top: 15),
              ),
               Container(
-                child: Text("abandi@skycliffit.com ",
+                child: Text("$username",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
