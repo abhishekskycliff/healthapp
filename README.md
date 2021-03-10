@@ -1,6 +1,6 @@
 # health_app
 
-A new Flutter application.
+In this project i tried calculating the BMI 
 
 ## Getting Started
 
