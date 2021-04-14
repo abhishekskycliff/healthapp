@@ -1,4 +1,4 @@
-# health_app
+# health app
 
 In this project i tried calculating the BMI 
 
