@@ -15,6 +15,7 @@ In this project i tried calculating the BMI
 9) Material Design
 10) Card View Animation
 11) Curve painter
+12) About Screen
 
 ## Logic
 
